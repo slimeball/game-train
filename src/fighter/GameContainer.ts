@@ -31,7 +31,7 @@ namespace fighter {
       // touch down start button
       this.addChild(this.startBtn);
       // add fighter to stage
-      this.playeFighter = new fighter.Airplane();
+      this.playeFighter = new fighter.Airplane(RES.getRes('f1_png'), 100);
       this.playeFighter.y = this.stageH - this.playeFighter.height - 50;
       this.playeFighter.x = (this.stageW / 2) - (this.playeFighter.width / 2);
       this.addChild(this.playeFighter);
@@ -40,13 +40,13 @@ namespace fighter {
     private gameStart(): void {
     egret.log(2)
       this.removeChild(this.startBtn);
-      this.touchEnabled=true;
-      this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.touchHandler,this);
+      this.touchEnabled = true;
+      this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchHandler, this);
     }
 
     public touchHandler(evt: egret.TouchEvent): void {
       if (evt.type == egret.TouchEvent.TOUCH_MOVE) {
-        this.playeFighter.x =evt.localX;
+        this.playeFighter.x = evt.localX;
       }
     }
   }

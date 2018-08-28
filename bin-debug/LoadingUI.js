@@ -26,8 +26,11 @@ var LoadingUI = /** @class */ (function (_super) {
         this.textField.height = 100;
         this.textField.textAlign = "center";
     };
-    LoadingUI.prototype.onProgress = function (current, total) {
+    LoadingUI.prototype.setProgress = function (current, total) {
         this.textField.text = "Loading..." + current + "/" + total;
     };
     return LoadingUI;
 }(egret.Sprite));
+
+__reflect(LoadingUI.prototype, "LoadingUI");
+//# sourceMappingURL=LoadingUI.js.map

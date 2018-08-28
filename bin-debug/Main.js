@@ -34,14 +34,14 @@ var Main = /** @class */ (function (_super) {
         if (event.groupName === 'preload') {
             this.stage.removeChild(this.loadingView);
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+            // RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
             var GameContainer = new fighter.GameContainer();
             this.addChild(GameContainer);
         }
     };
     Main.prototype.onResourceProgress = function (event) {
-        if (event.groupName === 'onProgress') {
-            this.loadingView.onProgress(event.itemsLoaded, event.itemsTotal);
+        if (event.groupName === 'preload') {
+            this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
     };
     return Main;
