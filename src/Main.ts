@@ -27,8 +27,8 @@ class Main extends egret.DisplayObjectContainer {
     }
   }
   private onResourceProgress(event: RES.ResourceEvent): void {
-    if (event.groupName === 'onProgress') {
-      this.loadingView.onProgress(event.itemsLoaded, event.itemsTotal);
+    if (event.groupName === 'preload') {
+      this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
     }
   }
 }
