@@ -38,6 +38,7 @@ namespace fighter {
     }
 
     private gameStart(): void {
+    egret.log(2)
       this.removeChild(this.startBtn);
       this.touchEnabled=true;
       this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.touchHandler,this);
