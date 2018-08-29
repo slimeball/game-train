@@ -18,4 +18,3 @@ var fighter;
     }
     fighter.createBitmapByName = createBitmapByName;
 })(fighter || (fighter = {}));
-//# sourceMappingURL=utils.js.map

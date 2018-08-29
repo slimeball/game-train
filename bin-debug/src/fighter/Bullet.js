@@ -51,4 +51,3 @@ var fighter;
     fighter.Bullet = Bullet;
     __reflect(Bullet.prototype, "fighter.Bullet");
 })(fighter || (fighter = {}));
-//# sourceMappingURL=Bullet.js.map

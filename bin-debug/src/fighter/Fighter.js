@@ -61,4 +61,3 @@ var fighter;
     fighter.Aircraft = Aircraft;
     __reflect(Aircraft.prototype, "fighter.Aircraft");
 })(fighter || (fighter = {}));
-//# sourceMappingURL=Fighter.js.map

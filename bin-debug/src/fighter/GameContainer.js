@@ -79,4 +79,3 @@ var fighter;
     fighter.GameContainer = GameContainer;
     __reflect(GameContainer.prototype, "fighter.GameContainer");
 })(fighter || (fighter = {}));
-//# sourceMappingURL=GameContainer.js.map
