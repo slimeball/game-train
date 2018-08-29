@@ -14,6 +14,7 @@ var fighter;
         __extends(GameContainer, _super);
         function GameContainer() {
             var _this = _super.call(this) || this;
+            _this.myBullet = [];
             _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.onAddToStage, _this);
             return _this;
         }
@@ -37,20 +38,40 @@ var fighter;
             // touch down start button
             this.addChild(this.startBtn);
             // add fighter to stage
-            this.playeFighter = new fighter.Airplane(RES.getRes('f1_png'), 100);
-            this.playeFighter.y = this.stageH - this.playeFighter.height - 50;
-            this.playeFighter.x = (this.stageW / 2) - (this.playeFighter.width / 2);
-            this.addChild(this.playeFighter);
+            this.playerFighter = new fighter.Aircraft(RES.getRes('f1_png'), 100);
+            this.playerFighter.y = this.stageH - this.playerFighter.height - 50;
+            this.playerFighter.x = (this.stageW / 2) - (this.playerFighter.width / 2);
+            this.addChild(this.playerFighter);
         };
         GameContainer.prototype.gameStart = function () {
             this.removeChild(this.startBtn);
             this.touchEnabled = true;
+            this.addEventListener(egret.Event.ENTER_FRAME, this.updateView, this);
             this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchHandler, this);
+            this.playerFighter.fire();
+            this.addEventListener('createBullet', this.bulletHandler, this);
         };
         GameContainer.prototype.touchHandler = function (evt) {
-            egret.log(1);
             if (evt.type == egret.TouchEvent.TOUCH_MOVE) {
-                this.playeFighter.x = evt.localX;
+                this.playerFighter.x = evt.localX - this.playerFighter.width;
+            }
+        };
+        GameContainer.prototype.bulletHandler = function (evt) {
+            var bullet;
+            if (evt.target == this.playerFighter) {
+                for (var i = 0; i < 2; i++) {
+                    bullet = fighter.Bullet.produceBullet('b1_png');
+                    bullet.x = this.playerFighter.x;
+                    bullet.y = this.playerFighter.y + this.playerFighter.height;
+                }
+            }
+        };
+        GameContainer.prototype.updateView = function (evt) {
+            var bullet;
+            var bulletLen = this.myBullet.length;
+            for (var i = 0; i < bulletLen; i++) {
+                bullet = this.myBullet[i];
+                bullet.y -= this.myBullet[i].height;
             }
         };
         return GameContainer;

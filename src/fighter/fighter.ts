@@ -1,5 +1,5 @@
 namespace fighter {
-  export class Airplane extends egret.DisplayObjectContainer {
+  export class Aircraft extends egret.DisplayObjectContainer {
     private static cacheDirt: Object = {};
 
     private bmp: egret.Bitmap;
@@ -15,24 +15,24 @@ namespace fighter {
       this.fireTimer = new egret.Timer(fireDelay);
       this.fireTimer.addEventListener(egret.TimerEvent.TIMER, this.createBullet, this);
     }
-    public static produce(textureName: string, fireDelay: number): any {
-      if (fighter.Airplane.cacheDirt[textureName] == null) {
-        fighter.Airplane.cacheDirt[textureName] = [];
-        let dict: fighter.Airplane[] = fighter.Airplane.cacheDirt[textureName];
-        let theFighter: fighter.Airplane;
+    public static produceAircraft(textureName: string, fireDelay: number): any {
+      if (fighter.Aircraft.cacheDirt[textureName] == null) {
+        fighter.Aircraft.cacheDirt[textureName] = [];
+        let dict: fighter.Aircraft[] = fighter.Aircraft.cacheDirt[textureName];
+        let theFighter: fighter.Aircraft;
         if (dict.length > 0) {
           theFighter = dict.pop();
         } else {
-          theFighter = new fighter.Airplane(RES.getRes(textureName), fireDelay);
+          theFighter = new fighter.Aircraft(RES.getRes(textureName), fireDelay);
         }
         theFighter.blood = 10;
         return theFighter;
       }
     }
-    public static reclaim(theFighter: fighter.Airplane, textureName: string) {
-      if (fighter.Airplane.cacheDirt[textureName] == null) {
-        fighter.Airplane.cacheDirt[textureName] = [];
-        let dict: fighter.Airplane[] = fighter.Airplane.cacheDirt[textureName];
+    public static reclaimAircraft(theFighter: fighter.Aircraft, textureName: string) {
+      if (fighter.Aircraft.cacheDirt[textureName] == null) {
+        fighter.Aircraft.cacheDirt[textureName] = [];
+        let dict: fighter.Aircraft[] = fighter.Aircraft.cacheDirt[textureName];
         if (dict.indexOf(theFighter) == -1) {
           dict.push(theFighter);
         }

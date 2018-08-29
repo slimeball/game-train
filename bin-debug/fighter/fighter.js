@@ -10,9 +10,9 @@ r.prototype = e.prototype, t.prototype = new r();
 };
 var fighter;
 (function (fighter) {
-    var Airplane = (function (_super) {
-        __extends(Airplane, _super);
-        function Airplane(texture, fireDelay) {
+    var Aircraft = (function (_super) {
+        __extends(Aircraft, _super);
+        function Aircraft(texture, fireDelay) {
             var _this = _super.call(this) || this;
             _this.blood = 10;
             _this.fireDelay = fireDelay;
@@ -22,43 +22,43 @@ var fighter;
             _this.fireTimer.addEventListener(egret.TimerEvent.TIMER, _this.createBullet, _this);
             return _this;
         }
-        Airplane.produce = function (textureName, fireDelay) {
-            if (fighter.Airplane.cacheDirt[textureName] == null) {
-                fighter.Airplane.cacheDirt[textureName] = [];
-                var dict = fighter.Airplane.cacheDirt[textureName];
+        Aircraft.produceAircraft = function (textureName, fireDelay) {
+            if (fighter.Aircraft.cacheDirt[textureName] == null) {
+                fighter.Aircraft.cacheDirt[textureName] = [];
+                var dict = fighter.Aircraft.cacheDirt[textureName];
                 var theFighter = void 0;
                 if (dict.length > 0) {
                     theFighter = dict.pop();
                 }
                 else {
-                    theFighter = new fighter.Airplane(RES.getRes(textureName), fireDelay);
+                    theFighter = new fighter.Aircraft(RES.getRes(textureName), fireDelay);
                 }
                 theFighter.blood = 10;
                 return theFighter;
             }
         };
-        Airplane.reclaim = function (theFighter, textureName) {
-            if (fighter.Airplane.cacheDirt[textureName] == null) {
-                fighter.Airplane.cacheDirt[textureName] = [];
-                var dict = fighter.Airplane.cacheDirt[textureName];
+        Aircraft.reclaimAircraft = function (theFighter, textureName) {
+            if (fighter.Aircraft.cacheDirt[textureName] == null) {
+                fighter.Aircraft.cacheDirt[textureName] = [];
+                var dict = fighter.Aircraft.cacheDirt[textureName];
                 if (dict.indexOf(theFighter) == -1) {
                     dict.push(theFighter);
                 }
             }
         };
-        Airplane.prototype.fire = function () {
+        Aircraft.prototype.fire = function () {
             this.fireTimer.start();
         };
-        Airplane.prototype.stopFire = function () {
+        Aircraft.prototype.stopFire = function () {
             this.fireTimer.stop();
         };
-        Airplane.prototype.createBullet = function (evt) {
+        Aircraft.prototype.createBullet = function (evt) {
             this.dispatchEventWith("createBullet");
         };
-        Airplane.cacheDirt = {};
-        return Airplane;
+        Aircraft.cacheDirt = {};
+        return Aircraft;
     }(egret.DisplayObjectContainer));
-    fighter.Airplane = Airplane;
-    __reflect(Airplane.prototype, "fighter.Airplane");
+    fighter.Aircraft = Aircraft;
+    __reflect(Aircraft.prototype, "fighter.Aircraft");
 })(fighter || (fighter = {}));
-//# sourceMappingURL=fighter.js.map
+//# sourceMappingURL=Fighter.js.map
