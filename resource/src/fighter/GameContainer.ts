@@ -44,7 +44,6 @@ namespace fighter {
     }
 
     public touchHandler(evt: egret.TouchEvent): void {
-      egret.log(1)
       if (evt.type == egret.TouchEvent.TOUCH_MOVE) {
         this.playeFighter.x = evt.localX;
       }
