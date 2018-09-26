@@ -92,12 +92,18 @@ var Main = (function (_super) {
         });
     };
     Main.prototype.init = function () {
-        var gv = new GameView();
-        this.addChild(gv);
-        gv.gamestart();
+        this.gv = new GameView();
+        this.addChild(this.gv);
+        this.gameStart = new StartGamePanel();
+        this.gameStart.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.gamebegin, this);
+        this.addChild(this.gameStart);
         // let a = new BlockGroup();
         // this.addChild(a);
         // a.createOne()
+    };
+    Main.prototype.gamebegin = function () {
+        this.gv.gamestart();
+        this.removeChild(this.gameStart);
     };
     return Main;
 }(egret.DisplayObjectContainer));

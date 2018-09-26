@@ -15,6 +15,7 @@
 		"bin-debug/GameView.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
-		"bin-debug/Platform.js"
+		"bin-debug/Platform.js",
+		"bin-debug/StartGamePanel.js"
 	]
 }

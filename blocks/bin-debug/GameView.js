@@ -37,10 +37,9 @@ var GameView = (function (_super) {
         var len = GameData.row + 1;
         for (var i = 0; i < len; i++) {
             this._blockGroup[i].y += GameData.getBlockHeight();
-            if (this._blockGroup[i].y >= GameData.getStageHeight()) {
-                if (i === 0) {
-                    this._blockGroup[i].y = 0;
-                }
+            if (this._blockGroup[i].y > GameData.getStageHeight()) {
+                console.log(i);
+                this._blockGroup[i].y = 0;
                 this._blockGroup[i].createOne();
             }
         }
