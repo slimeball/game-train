@@ -9,8 +9,8 @@ class ImgBtn extends egret.Sprite {
 
 	public createBtn(upData: any, downData: any, dispatcher: egret.DisplayObject) {
 		this._btnPressUp = new egret.Bitmap();
-		this._btnPressUp.texture = upData;
 		this._btnPressDown = new egret.Bitmap();
+		this._btnPressUp.texture = upData;
 		this._btnPressDown.texture = downData;
 		this.touchEnabled = true;
 		this._dispatcher = dispatcher;

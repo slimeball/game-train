@@ -12,9 +12,9 @@ var GameView = (function (_super) {
     __extends(GameView, _super);
     function GameView() {
         var _this = _super.call(this) || this;
-        // ????
+        // layout count
         _this._gridLvArr = [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 7, 8, 8, 8, 8, 8, 9];
-        // ????
+        //  face index mark
         _this._gridTypeArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
         // visible result text
         _this._scoreLvDes = ["无药可救", "重度脸盲", "中度脸盲", "轻度脸盲", "顿足捶胸", "手疾眼快", "火眼金睛"];
@@ -26,8 +26,129 @@ var GameView = (function (_super) {
         _this._runTime = 0;
         // current level
         _this._currentLv = 0;
+        _this._space = 13.5;
+        _this._row = 3;
+        _this._column = 3;
         return _this;
     }
+    GameView.prototype.createGame = function (res) {
+        this._res = res;
+        // init start button
+        this._startBtn = new ImgBtn();
+        this._startBtn.x = 85;
+        this._startBtn.y = 385;
+        this._startBtn.createBtn(this._res.getTexture('start1'), this._res.getTexture('start2'));
+        this.addChild(this._startBtn);
+        this._startBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.startGame, this);
+        // init first page doll
+        this._dollPic = new egret.Bitmap();
+        this._dollPic.texture = this._res.getTexture('zxh');
+        this._dollPic.x = 195;
+        this._dollPic.y = 200;
+        this.addChild(this._dollPic);
+        this._startBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.restartGame, this);
+        // init grid container
+        this._gridContainer = new egret.Sprite();
+        this._gridContainer.y = 140;
+        this._gridContainer.x = 0;
+        this._gridContainer.width = 480;
+        this._gridContainer.height = 480;
+        this._gridContainer.graphics.beginFill(0xffffff);
+        this._gridContainer.graphics.drawRect(0, 0, this._gridContainer.width, this._gridContainer.height);
+        this._gridContainer.graphics.endFill();
+        this.initGridPool();
+    };
+    GameView.prototype.destoryGrids = function () {
+        while (this._gridContainer.numChildren) {
+            this._gridPool.push(this._gridContainer.removeChildAt(0));
+        }
+    };
+    GameView.prototype.getGrid = function (index, type, posX, posY) {
+        var grid = this._gridPool.shift();
+        var dataName = type.toString();
+        var data = this._res.getTexture(dataName);
+        grid.width = this._size;
+        grid.height = this._size;
+        var scale = this._size / 142;
+        grid.x = (posX + 1) * this._space + posX * this._size;
+        grid.y = (posY + 1) * this._space + posY * this._size;
+        grid._dispatcher = this;
+        grid.reset(index, type, data, scale);
+        return grid;
+    };
+    /**
+     * according level randomly get current type of face, another face and * position
+     */
+    GameView.prototype.getDifTypeAndPos = function (lv) {
+        var typelen = this._gridTypeArr.length;
+        var type = Math.floor(Math.random() * typelen + 1);
+        var anotherType = Math.floor(Math.random() * typelen + 1);
+        if (type == anotherType) {
+            anotherType = type == 1 ? 2 : type - 1;
+        }
+        var pos = Math.floor(Math.random() * lv * lv + 1);
+        this._difPos = pos;
+        return [type, anotherType, pos];
+    };
+    GameView.prototype.createGrids = function (gridLv) {
+        this.destoryGrids();
+        this._row = gridLv;
+        this._column = gridLv;
+        this._size = (this.width - (gridLv + 1) * this._space) / gridLv;
+        var diffArr = this.getDifTypeAndPos(gridLv);
+        for (var i = 0; i < this._row; i++) {
+            for (var j = 0; j < this._column; j++) {
+                var index = this._row * i + j + 1;
+                var grid = void 0;
+                if (index == diffArr[2]) {
+                    grid = this.getGrid(index, diffArr[1], j, i);
+                }
+                else {
+                    grid = this.getGrid(index, diffArr[0], j, i);
+                }
+                this._gridContainer.addChild(grid);
+                grid.addEventListener(egret.TouchEvent.TOUCH_TAP, this.gridTouchTapHandler, this);
+            }
+        }
+    };
+    GameView.prototype.getGridLv = function (lv) {
+        if (lv > this._gridLvArr.length - 1) {
+            return 9;
+        }
+        return this._gridLvArr[lv];
+    };
+    GameView.prototype.nextGirdLv = function () {
+        this.createGrids(this.getGridLv(this._currentLv));
+    };
+    GameView.prototype.gridTouchTapHandler = function (evt) {
+        console.log(evt.target._index);
+        console.log(this._difPos);
+        if (evt.target._index == this._difPos) {
+            this._currentLv++;
+            this.nextGirdLv();
+        }
+    };
+    /**
+     * initialize grid pool
+     */
+    GameView.prototype.initGridPool = function () {
+        this._gridPool = [];
+        for (var i = 0; i < 81; i++) {
+            var grid = new Grid();
+            this._gridPool.push(grid);
+        }
+    };
+    /**
+     * game start
+     */
+    GameView.prototype.startGame = function () {
+        this.removeChild(this._startBtn);
+        this.removeChild(this._dollPic);
+        this.addChild(this._gridContainer);
+        this.createGrids(this.getGridLv(this._currentLv));
+    };
+    GameView.prototype.restartGame = function () {
+    };
     return GameView;
 }(egret.DisplayObjectContainer));
 __reflect(GameView.prototype, "GameView");

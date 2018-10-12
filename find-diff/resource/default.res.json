@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,Sprites_json,loading_gif",
+			"keys": "description_json,Sprites_json,loading_gif,loading_json,loading_png",
 			"name": "preload"
 		}
 	],
@@ -21,6 +21,16 @@
 			"name": "loading_gif",
 			"type": "image",
 			"url": "assets/loading.gif"
+		},
+		{
+			"name": "loading_json",
+			"type": "json",
+			"url": "assets/loading.json"
+		},
+		{
+			"name": "loading_png",
+			"type": "image",
+			"url": "assets/loading.png"
 		}
 	]
 }

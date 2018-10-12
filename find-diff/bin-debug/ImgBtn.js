@@ -15,8 +15,8 @@ var ImgBtn = (function (_super) {
     }
     ImgBtn.prototype.createBtn = function (upData, downData, dispatcher) {
         this._btnPressUp = new egret.Bitmap();
-        this._btnPressUp.texture = upData;
         this._btnPressDown = new egret.Bitmap();
+        this._btnPressUp.texture = upData;
         this._btnPressDown.texture = downData;
         this.touchEnabled = true;
         this._dispatcher = dispatcher;

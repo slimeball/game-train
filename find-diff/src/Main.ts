@@ -30,7 +30,7 @@ class Main extends egret.DisplayObjectContainer {
     private async runGame() {
         await this.loadResource()
         this.createGameScene();
-        const result = await RES.getResAsync("description_json")
+        const result = await RES.getResAsync("description_json");
         await platform.login();
     }
 
@@ -53,30 +53,27 @@ class Main extends egret.DisplayObjectContainer {
      * 创建游戏场景
      * Create a game scene
      */
-    private logopic:egret.Bitmap;
+
+    private _gameView: GameView;
+    public _res: egret.SpriteSheet;
+
     private createGameScene() {
-        let bgpic = this.createBitmapByName('bg');
-        this.addChild(bgpic);
-        let stageW = this.stage.stageWidth;
-        let stageH = this.stage.stageHeight;
-        bgpic.width = stageW;
-        bgpic.height = stageH;
-
-        this.logopic = new egret.Bitmap();
-        let logotexture: egret.Texture = RES.getRes('loading_gif');
-        this.logopic.texture = logotexture;
-        this.addChild(this.logopic);
+        this._res = RES.getRes('Sprites_json');
+        let bitmap: egret.Bitmap = new egret.Bitmap();
+        bitmap.texture = this._res.getTexture('bg');
+        bitmap.width = this.stage.stageWidth;
+        bitmap.height = this.stage.stageHeight;
+        this.addChild(bitmap);
+        this.initGame();
     }
 
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
-     */
-    private createBitmapByName(name: string) {
-        let result = new egret.Bitmap();
-        let texture: egret.Texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
-    }
 
+    private initGame(): void {
+        this._gameView = new GameView();
+        this._gameView._res = this._res;
+        this._gameView.width = this.stage.stageWidth;
+        this._gameView.height = this.stage.stageHeight;
+        this._gameView.createGame(this._res);
+        this.addChild(this._gameView);
+    }
 }

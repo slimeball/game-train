@@ -113,26 +113,21 @@ var Main = (function (_super) {
         });
     };
     Main.prototype.createGameScene = function () {
-        var bgpic = this.createBitmapByName('bg');
-        this.addChild(bgpic);
-        var stageW = this.stage.stageWidth;
-        var stageH = this.stage.stageHeight;
-        bgpic.width = stageW;
-        bgpic.height = stageH;
-        this.logopic = new egret.Bitmap();
-        var logotexture = RES.getRes('loading_gif');
-        this.logopic.texture = logotexture;
-        this.addChild(this.logopic);
+        this._res = RES.getRes('Sprites_json');
+        var bitmap = new egret.Bitmap();
+        bitmap.texture = this._res.getTexture('bg');
+        bitmap.width = this.stage.stageWidth;
+        bitmap.height = this.stage.stageHeight;
+        this.addChild(bitmap);
+        this.initGame();
     };
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
-     */
-    Main.prototype.createBitmapByName = function (name) {
-        var result = new egret.Bitmap();
-        var texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
+    Main.prototype.initGame = function () {
+        this._gameView = new GameView();
+        this._gameView._res = this._res;
+        this._gameView.width = this.stage.stageWidth;
+        this._gameView.height = this.stage.stageHeight;
+        this._gameView.createGame(this._res);
+        this.addChild(this._gameView);
     };
     return Main;
 }(egret.DisplayObjectContainer));
