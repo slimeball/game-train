@@ -15,6 +15,7 @@ var Grid = (function (_super) {
         _this._index = 0;
         _this._type = 0;
         _this._imgIco = new egret.Bitmap();
+        _this.touchEnabled = true;
         _this.addChild(_this._imgIco);
         return _this;
     }
@@ -25,6 +26,7 @@ var Grid = (function (_super) {
         this._imgIco.texture = data;
         this._imgIco.scaleX = scale;
         this._imgIco.scaleY = scale;
+        this._index = index;
         this._type = type;
     };
     return Grid;

@@ -35,24 +35,30 @@ var GameView = (function (_super) {
         this._res = res;
         // init start button
         this._startBtn = new ImgBtn();
-        this._startBtn.x = 85;
-        this._startBtn.y = 385;
         this._startBtn.createBtn(this._res.getTexture('start1'), this._res.getTexture('start2'));
         this.addChild(this._startBtn);
+        this._startBtn.x = (egret.MainContext.instance.stage.stageWidth - this._startBtn.width) / 2;
+        this._startBtn.y = (egret.MainContext.instance.stage.stageHeight - this._startBtn.height) / 2;
         this._startBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.startGame, this);
+        // init restart button
+        this._restartBtn = new ImgBtn();
+        this._restartBtn.createBtn(this._res.getTexture("restart1"), this._res.getTexture("restart2"), this);
+        this._restartBtn.x = (egret.MainContext.instance.stage.stageWidth - this._restartBtn.width) / 2;
+        this._restartBtn.y = (egret.MainContext.instance.stage.stageHeight - this._restartBtn.height) / 2;
+        this._restartBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.restartGame, this);
         // init first page doll
         this._dollPic = new egret.Bitmap();
         this._dollPic.texture = this._res.getTexture('zxh');
-        this._dollPic.x = 195;
-        this._dollPic.y = 200;
         this.addChild(this._dollPic);
-        this._startBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.restartGame, this);
+        this._dollPic.x = (egret.MainContext.instance.stage.stageWidth - this._dollPic.width) / 2;
+        this._dollPic.y = (egret.MainContext.instance.stage.stageHeight - this._dollPic.height) / 3;
+        // this._startBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.restartGame, this);
         // init grid container
         this._gridContainer = new egret.Sprite();
-        this._gridContainer.y = 140;
+        this._gridContainer.width = egret.MainContext.instance.stage.stageWidth;
+        this._gridContainer.height = this._gridContainer.width;
+        this._gridContainer.y = this._gridContainer.width / 3;
         this._gridContainer.x = 0;
-        this._gridContainer.width = 480;
-        this._gridContainer.height = 480;
         this._gridContainer.graphics.beginFill(0xffffff);
         this._gridContainer.graphics.drawRect(0, 0, this._gridContainer.width, this._gridContainer.height);
         this._gridContainer.graphics.endFill();
@@ -121,11 +127,12 @@ var GameView = (function (_super) {
         this.createGrids(this.getGridLv(this._currentLv));
     };
     GameView.prototype.gridTouchTapHandler = function (evt) {
-        console.log(evt.target._index);
-        console.log(this._difPos);
         if (evt.target._index == this._difPos) {
             this._currentLv++;
             this.nextGirdLv();
+        }
+        else {
+            this.gameOver();
         }
     };
     /**
@@ -142,12 +149,21 @@ var GameView = (function (_super) {
      * game start
      */
     GameView.prototype.startGame = function () {
-        this.removeChild(this._startBtn);
-        this.removeChild(this._dollPic);
+        try {
+            this.removeChild(this._startBtn);
+            this.removeChild(this._dollPic);
+        }
+        catch (e) { }
         this.addChild(this._gridContainer);
         this.createGrids(this.getGridLv(this._currentLv));
     };
+    GameView.prototype.gameOver = function () {
+        this.removeChild(this._gridContainer);
+        this.addChild(this._restartBtn);
+    };
     GameView.prototype.restartGame = function () {
+        this.removeChild(this._restartBtn);
+        this.startGame();
     };
     return GameView;
 }(egret.DisplayObjectContainer));
