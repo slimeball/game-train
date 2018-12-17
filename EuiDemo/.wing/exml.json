@@ -1,0 +1,26 @@
+{
+  "1673a3c1a11": {
+    "path": "..\\resource\\custiom_skins\\yard.ts",
+    "class": "yard",
+    "parentPath": ""
+  },
+  "1673fa2c0c1": {
+    "path": "HomeUi.ts",
+    "class": "HomeUi",
+    "parentPath": "",
+    "bindingDataTestObj": [],
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
+  },
+  "global": {
+    "globalBindingDataTestObj": [],
+    "globalAutoLayerMarkEnable": true,
+    "globalAdsorbEnable": true,
+    "globalRulerEnable": true
+  }
+}

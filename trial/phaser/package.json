@@ -1,0 +1,22 @@
+{
+  "name": "phaser-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "phaser": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^7.0.1"
+  },
+  "scripts": {
+    "dev": "http-server phaser -p 10000",
+    "test": "http-server phaser3-tutorial-src -p 10001",
+    "demo": "http-server demo -p 10002"
+  },
+  "author": "",
+  "license": "ISC"
+}
