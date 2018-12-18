@@ -44,7 +44,7 @@ class Main extends eui.UILayer {
             this.stage.addChild(loadingView);
             await this.loadTheme();
             await RES.loadGroup("preload", 0, loadingView);
-            // this.stage.removeChild(loadingView);
+            this.stage.removeChild(loadingView);
         }
         catch (e) {
             console.error(e);
@@ -67,8 +67,9 @@ class Main extends eui.UILayer {
      * 创建场景界面
      * Create scene interface
      */
+    private HomeUi: HomeUi;
     protected createGameScene(): void {
-        let home = new HomeUi();
-        this.addChild(home);
+        this.HomeUi = new HomeUi();
+        this.addChild(this.HomeUi);
     }
 }

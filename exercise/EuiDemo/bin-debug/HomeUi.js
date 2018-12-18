@@ -12,11 +12,16 @@ var HomeUi = (function (_super) {
     __extends(HomeUi, _super);
     function HomeUi() {
         var _this = _super.call(this) || this;
-        _this.addEventListener(eui.UIEvent.CREATION_COMPLETE, _this.handleUi, _this);
+        _this.addEventListener(eui.UIEvent.COMPLETE, _this.handleUi, _this);
         _this.skinName = '/resource/custom_skins/HomeUi.exml';
         return _this;
     }
     HomeUi.prototype.handleUi = function () {
+        this.btnPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnHanlder, this);
+        this.imgBg.source = 'commonBg_jpg';
+    };
+    HomeUi.prototype.btnHanlder = function () {
+        // alert(1)
     };
     return HomeUi;
 }(eui.Component));

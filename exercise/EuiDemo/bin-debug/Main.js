@@ -113,6 +113,7 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
                     case 4:
                         _a.sent();
+                        this.stage.removeChild(loadingView);
                         return [3 /*break*/, 6];
                     case 5:
                         e_1 = _a.sent();
@@ -134,13 +135,9 @@ var Main = (function (_super) {
             }, _this);
         });
     };
-    /**
-     * 创建场景界面
-     * Create scene interface
-     */
     Main.prototype.createGameScene = function () {
-        var home = new HomeUi();
-        this.addChild(home);
+        this.HomeUi = new HomeUi();
+        this.addChild(this.HomeUi);
     };
     return Main;
 }(eui.UILayer));
