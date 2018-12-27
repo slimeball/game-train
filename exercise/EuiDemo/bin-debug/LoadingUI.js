@@ -30,13 +30,19 @@ var LoadingUI = (function (_super) {
         this.addChild(this.loadingImg);
         this.textField = new egret.TextField();
         this.addChild(this.textField);
-        this.textField.y = 300;
+        this.textField.y = this.height / 2 - this.textField.height / 2;
         this.textField.width = 480;
-        this.textField.height = 100;
+        this.textField.height = 20;
+        this.textField.size = 14;
         this.textField.textAlign = "center";
+        this.addEventListener(egret.Event.ENTER_FRAME, this.update, this);
+    };
+    LoadingUI.prototype.update = function () {
+        this.loadingImg.rotation += 5;
     };
     LoadingUI.prototype.onProgress = function (current, total) {
-        this.textField.text = "Loading..." + current + "/" + total;
+        var per = Math.floor((current / total) * 100);
+        this.textField.text = per + '%';
     };
     return LoadingUI;
 }(egret.Sprite));

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="HomeUiSkin" width="480" height="800" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
-	<e:Image id="imgBg" width="100%" height="100%" x="0" y="0"/>
-	<e:ToggleButton id="btnPlayer" label="" x="0" bottom="0">
+	<e:Image id="imgBg" width="100%" height="100%" x="0" y="1"/>
+	<e:ToggleButton id="btnPlayer" label="" x="18" bottom="-2">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>
@@ -9,7 +9,7 @@
 			</e:Skin>
 		</e:skinName>
 	</e:ToggleButton>
-	<e:ToggleButton id="btnHeros" label="" x="111" bottom="0">
+	<e:ToggleButton id="btnHeros" label="" x="129" bottom="-3">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>
@@ -17,7 +17,7 @@
 			</e:Skin>
 		</e:skinName>
 	</e:ToggleButton>
-	<e:ToggleButton id="btnInventory" label="" x="219" bottom="0">
+	<e:ToggleButton id="btnInventory" label="" x="241" bottom="-1">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>
@@ -25,7 +25,7 @@
 			</e:Skin>
 		</e:skinName>
 	</e:ToggleButton>
-	<e:ToggleButton id="btnAbout" label="" x="330" anchorOffsetY="0" height="85" bottom="0">
+	<e:ToggleButton id="btnAbout" label="" x="353" anchorOffsetY="0" height="85" bottom="-1">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>

@@ -1,4 +1,8 @@
+declare class equipSkin extends eui.Skin{
+}
 declare class HomeUiSkin extends eui.Skin{
+}
+declare class playerUiSkin extends eui.Skin{
 }
 declare module skins{
 	class ButtonSkin extends eui.Skin{
