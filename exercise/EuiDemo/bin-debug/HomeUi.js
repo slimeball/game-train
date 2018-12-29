@@ -17,11 +17,24 @@ var HomeUi = (function (_super) {
         return _this;
     }
     HomeUi.prototype.handleUi = function () {
-        this.btnPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnHanlder, this);
+        var _this = this;
+        var btnList = [this.btnPlayer, this.btnHeros, this.btnInventory, this.btnAbout];
+        btnList.forEach(function (element) {
+            element.addEventListener(egret.TouchEvent.TOUCH_TAP, _this.btnHanlder, _this);
+        });
         this.imgBg.source = 'commonBg_jpg';
     };
-    HomeUi.prototype.btnHanlder = function () {
-        // alert(1)
+    HomeUi.prototype.btnHanlder = function (evt) {
+        console.log(evt.currentTarget.name);
+        switch (true) {
+            case true:
+                break;
+            case true:
+                break;
+        }
+    };
+    HomeUi.prototype.switchSence = function (senceName) {
+        console.log(senceName);
     };
     return HomeUi;
 }(eui.Component));

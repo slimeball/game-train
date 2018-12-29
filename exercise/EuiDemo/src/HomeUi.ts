@@ -1,6 +1,6 @@
 class HomeUi extends eui.Component implements eui.UIComponent {
 	private _pageFocused: string;
-	private imgBg:eui.Image;
+	private imgBg: eui.Image;
 
 	public constructor() {
 		super();
@@ -13,10 +13,24 @@ class HomeUi extends eui.Component implements eui.UIComponent {
 	private btnAbout: eui.ToggleButton;
 
 	private handleUi(): void {
-		this.btnPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnHanlder, this);
+		let btnList = [this.btnPlayer, this.btnHeros, this.btnInventory, this.btnAbout];
+		btnList.forEach(element => {
+			element.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnHanlder, this);
+		});
 		this.imgBg.source = 'commonBg_jpg';
 	}
-	private btnHanlder():void{
-		// alert(1)
+	private btnHanlder(evt: egret.TouchEvent): void {
+		console.log(evt.currentTarget.name);
+		switch(true){
+			case true:
+				break;
+			case true:
+				break;
+		}
+	}
+
+	private switchSence(senceName: string): void {
+		console.log(senceName);
+
 	}
 }
