@@ -21,16 +21,17 @@ class HomeUi extends eui.Component implements eui.UIComponent {
 	}
 	private btnHanlder(evt: egret.TouchEvent): void {
 		console.log(evt.currentTarget.name);
-		switch(true){
-			case true:
-				break;
-			case true:
-				break;
-		}
+		// switch(true){
+		// 	case true:
+		// 		break;
+		// 	case true:
+		// 		break;
+		// }
+		this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, evt.currentTarget.name);
 	}
 
-	private switchSence(senceName: string): void {
+	public switchSence(senceName: string): void {
 		console.log(senceName);
-
+		
 	}
 }

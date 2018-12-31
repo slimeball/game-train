@@ -24,7 +24,10 @@ class Main extends eui.UILayer {
         this.runGame().catch(e => {
             console.log(e);
         })
+        
     }
+
+    private loadingView = new LoadingUI();
 
     private async runGame() {
         await this.loadResource()
@@ -39,12 +42,12 @@ class Main extends eui.UILayer {
     private async loadResource() {
         try {
             await RES.loadConfig("resource/default.res.json", "resource/");
-            const loadingView = new LoadingUI();
             await RES.loadGroup("loading");
-            this.stage.addChild(loadingView);
+            this.stage.addChild(this.loadingView);
+            this.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigDone, this)
             await this.loadTheme();
-            await RES.loadGroup("preload", 0, loadingView);
-            this.stage.removeChild(loadingView);
+            await RES.loadGroup("preload", 0, this.loadingView);
+            this.stage.removeChild(this.loadingView);
         }
         catch (e) {
             console.error(e);
@@ -59,17 +62,44 @@ class Main extends eui.UILayer {
             theme.addEventListener(eui.UIEvent.COMPLETE, () => {
                 resolve();
             }, this);
-
         })
     }
 
+    private onConfigDone(evt: RES.ResourceEvent): void {
+        this.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigDone, this);
+        RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onSourceDone, this);
+    }
+
+    private onSourceDone(evt: RES.ResourceEvent):void{
+        switch(evt.groupName){
+            case 'loading':
+                if(this.loadingView.parent){
+                    this.stage.removeChild(this.loadingView);
+                }
+                break;
+            case 'home':
+                
+                break;
+            default:
+            this.pageLoader(evt.groupName);
+            break;
+        }
+    }
     /**
      * 创建场景界面
      * Create scene interface
      */
     private HomeUi: HomeUi;
     protected createGameScene(): void {
-        this.HomeUi = new HomeUi();
         this.addChild(this.HomeUi);
+    }
+
+    private loadPage(pageName: string):void{
+        
+    }
+
+    private pageLoader(name: string):void {
+        this.HomeUi = new HomeUi();
+        this.HomeUi.switchSence(name);
     }
 }
