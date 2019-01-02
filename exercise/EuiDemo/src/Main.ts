@@ -20,14 +20,12 @@ class Main extends eui.UILayer {
         egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
         egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
 
-
         this.runGame().catch(e => {
             console.log(e);
         })
-        
     }
 
-    private loadingView = new LoadingUI();
+    private loadingView: LoadingUI;
 
     private async runGame() {
         await this.loadResource()
@@ -36,16 +34,15 @@ class Main extends eui.UILayer {
         await platform.login();
         const userInfo = await platform.getUserInfo();
         console.log(userInfo);
-
+        await this.loadTheme();
     }
 
     private async loadResource() {
         try {
             await RES.loadConfig("resource/default.res.json", "resource/");
+            this.loadingView = new LoadingUI();
             await RES.loadGroup("loading");
             this.stage.addChild(this.loadingView);
-            this.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigDone, this)
-            await this.loadTheme();
             await RES.loadGroup("preload", 0, this.loadingView);
             this.stage.removeChild(this.loadingView);
         }
@@ -62,27 +59,24 @@ class Main extends eui.UILayer {
             theme.addEventListener(eui.UIEvent.COMPLETE, () => {
                 resolve();
             }, this);
+            // 监听资源加载完成
+            RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onSourceDone, this);
         })
     }
 
-    private onConfigDone(evt: RES.ResourceEvent): void {
-        this.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigDone, this);
-        RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onSourceDone, this);
-    }
-
-    private onSourceDone(evt: RES.ResourceEvent):void{
-        switch(evt.groupName){
+    private onSourceDone(evt: RES.ResourceEvent): void {
+        // 根据加载的资源组不同进行不同处理
+        switch (evt.groupName) {
             case 'loading':
-                if(this.loadingView.parent){
+                if (this.loadingView.parent) {
                     this.stage.removeChild(this.loadingView);
                 }
                 break;
             case 'home':
-                
                 break;
             default:
-            this.pageLoader(evt.groupName);
-            break;
+                this.pageLoader(evt.groupName);
+                break;
         }
     }
     /**
@@ -90,16 +84,27 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     private HomeUi: HomeUi;
+    
+    // 根据组名加载不同资源
+    private loadPage(pageName: string): void {
+        switch(pageName){
+            case GamePages.PLAYER:
+                RES.loadGroup(GamePages.PLAYER);
+            break;
+        }
+    }
+
+    private pageLoader(name: string): void {
+        if(name !== 'home'){
+            this.HomeUi.switchSence(name);
+        }
+    }
+
     protected createGameScene(): void {
-        this.addChild(this.HomeUi);
-    }
-
-    private loadPage(pageName: string):void{
-        
-    }
-
-    private pageLoader(name: string):void {
         this.HomeUi = new HomeUi();
-        this.HomeUi.switchSence(name);
+        this.HomeUi.addEventListener(GameEvent.EVT_LOAD_PAGE, (evt:egret.Event)=>{
+            this.loadPage(evt.data);
+        }, this);
+        this.addChild(this.HomeUi);
     }
 }

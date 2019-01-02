@@ -87,6 +87,9 @@ var Main = (function (_super) {
                     case 4:
                         userInfo = _a.sent();
                         console.log(userInfo);
+                        return [4 /*yield*/, this.loadTheme()];
+                    case 5:
+                        _a.sent();
                         return [2 /*return*/];
                 }
             });
@@ -94,32 +97,29 @@ var Main = (function (_super) {
     };
     Main.prototype.loadResource = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loadingView, e_1;
+            var e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 5, , 6]);
+                        _a.trys.push([0, 4, , 5]);
                         return [4 /*yield*/, RES.loadConfig("resource/default.res.json", "resource/")];
                     case 1:
                         _a.sent();
-                        loadingView = new LoadingUI();
+                        this.loadingView = new LoadingUI();
                         return [4 /*yield*/, RES.loadGroup("loading")];
                     case 2:
                         _a.sent();
-                        this.stage.addChild(loadingView);
-                        return [4 /*yield*/, this.loadTheme()];
+                        this.stage.addChild(this.loadingView);
+                        return [4 /*yield*/, RES.loadGroup("preload", 0, this.loadingView)];
                     case 3:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
+                        this.stage.removeChild(this.loadingView);
+                        return [3 /*break*/, 5];
                     case 4:
-                        _a.sent();
-                        this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 6];
-                    case 5:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         });
@@ -133,10 +133,44 @@ var Main = (function (_super) {
             theme.addEventListener(eui.UIEvent.COMPLETE, function () {
                 resolve();
             }, _this);
+            // 监听资源加载完成
+            RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, _this.onSourceDone, _this);
         });
     };
+    Main.prototype.onSourceDone = function (evt) {
+        // 根据加载的资源组不同进行不同处理
+        switch (evt.groupName) {
+            case 'loading':
+                if (this.loadingView.parent) {
+                    this.stage.removeChild(this.loadingView);
+                }
+                break;
+            case 'home':
+                break;
+            default:
+                this.pageLoader(evt.groupName);
+                break;
+        }
+    };
+    // 根据组名加载不同资源
+    Main.prototype.loadPage = function (pageName) {
+        switch (pageName) {
+            case GamePages.PLAYER:
+                RES.loadGroup(GamePages.PLAYER);
+                break;
+        }
+    };
+    Main.prototype.pageLoader = function (name) {
+        if (name !== 'home') {
+            this.HomeUi.switchSence(name);
+        }
+    };
     Main.prototype.createGameScene = function () {
+        var _this = this;
         this.HomeUi = new HomeUi();
+        this.HomeUi.addEventListener(GameEvent.EVT_LOAD_PAGE, function (evt) {
+            _this.loadPage(evt.data);
+        }, this);
         this.addChild(this.HomeUi);
     };
     return Main;

@@ -25,16 +25,27 @@ var HomeUi = (function (_super) {
         this.imgBg.source = 'commonBg_jpg';
     };
     HomeUi.prototype.btnHanlder = function (evt) {
-        console.log(evt.currentTarget.name);
-        switch (true) {
-            case true:
+        // 匹配点击的按钮对象，切换页面并传递资源组名
+        switch (evt.currentTarget) {
+            case this.btnPlayer:
+                this._currentPage = GamePages.PLAYER;
                 break;
-            case true:
+            case this.btnHeros:
+                this._currentPage = GamePages.HEROS;
                 break;
         }
+        this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, this._currentPage);
     };
     HomeUi.prototype.switchSence = function (senceName) {
-        console.log(senceName);
+        switch (senceName) {
+            case GamePages.PLAYER:
+                if (!this._playerUI) {
+                    this._playerUI = new playerUi();
+                    this._focusedUI = this._playerUI;
+                }
+                break;
+        }
+        this.addChildAt(this._focusedUI, this.getChildIndex(this.imgBg) + 1);
     };
     return HomeUi;
 }(eui.Component));
