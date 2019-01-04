@@ -22,9 +22,14 @@ var HomeUi = (function (_super) {
         btnList.forEach(function (element) {
             element.addEventListener(egret.TouchEvent.TOUCH_TAP, _this.btnHanlder, _this);
         });
-        this.imgBg.source = 'commonBg_jpg';
+        this.imgBg.source = 'homeBg_jpg';
+    };
+    HomeUi.prototype.backHome = function () {
+        this._backCurrentPrev = this._currentPage = GamePages.HOME;
+        this.imgBg.source = 'homeBg_jpg';
     };
     HomeUi.prototype.btnHanlder = function (evt) {
+        this._backCurrentPrev = this._currentPage;
         // 匹配点击的按钮对象，切换页面并传递资源组名
         switch (evt.currentTarget) {
             case this.btnPlayer:
@@ -37,12 +42,20 @@ var HomeUi = (function (_super) {
         this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, this._currentPage);
     };
     HomeUi.prototype.switchSence = function (senceName) {
+        var _this = this;
         switch (senceName) {
             case GamePages.PLAYER:
                 if (!this._playerUI) {
-                    this._playerUI = new playerUi();
-                    this._focusedUI = this._playerUI;
+                    this._playerUI = new playerUi;
+                    this._playerUI.addEventListener(GameEvent.EVT_RETURN, function () {
+                        if (_this._focusedUI.parent) {
+                            _this._focusedUI.parent.removeChild(_this._focusedUI);
+                        }
+                        _this.backHome();
+                    }, this);
                 }
+                this.imgBg.source = 'commonBg_jpg';
+                this._focusedUI = this._playerUI;
                 break;
         }
         this.addChildAt(this._focusedUI, this.getChildIndex(this.imgBg) + 1);

@@ -1,1 +1,1 @@
-{"version":3,"file":"GameEvent.js","sourceRoot":"","sources":["../src/GameEvent.ts"],"names":[],"mappings":";;;AAAA;IAAA;IAEA,CAAC;IADc,uBAAa,GAAW,gBAAgB,CAAC;IACxD,gBAAC;CAAA,AAFD,IAEC;AAFK,UAAA,SAAS,wBAEd,CAAA"}
+{"version":3,"file":"GameEvent.js","sourceRoot":"","sources":["../src/GameEvent.ts"],"names":[],"mappings":";;;AAAA;IAAA;IAGA,CAAC;IAFc,oBAAU,GAAW,YAAY,CAAC;IAClC,uBAAa,GAAW,eAAe,CAAC;IACvD,gBAAC;CAAA,AAHD,IAGC;AAHK,UAAA,SAAS,wBAGd,CAAA"}

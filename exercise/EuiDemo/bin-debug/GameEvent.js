@@ -4,7 +4,8 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var GameEvent = (function () {
     function GameEvent() {
     }
-    GameEvent.EVT_LOAD_PAGE = "EVT_LOAD_PAGE8";
+    GameEvent.EVT_RETURN = "EVT_RETURN";
+    GameEvent.EVT_LOAD_PAGE = "EVT_LOAD_PAGE";
     return GameEvent;
 }());
 __reflect(GameEvent.prototype, "GameEvent");

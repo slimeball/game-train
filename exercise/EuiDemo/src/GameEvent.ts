@@ -1,3 +1,4 @@
 class GameEvent {
-	public static EVT_LOAD_PAGE: string = "EVT_LOAD_PAGE8";
+	public static EVT_RETURN: string = "EVT_RETURN";
+	public static EVT_LOAD_PAGE: string = "EVT_LOAD_PAGE";
 }

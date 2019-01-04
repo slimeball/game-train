@@ -11,13 +11,16 @@ r.prototype = e.prototype, t.prototype = new r();
 var playerUi = (function (_super) {
     __extends(playerUi, _super);
     function playerUi() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this.addEventListener(eui.UIEvent.COMPLETE, _this.handleUi, _this);
+        _this.skinName = '/resource/custom_skins/playerUi.exml';
+        return _this;
     }
-    playerUi.prototype.partAdded = function (partName, instance) {
-        _super.prototype.partAdded.call(this, partName, instance);
-    };
-    playerUi.prototype.childrenCreated = function () {
-        _super.prototype.childrenCreated.call(this);
+    playerUi.prototype.handleUi = function () {
+        var _this = this;
+        this.btnReturn.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            _this.dispatchEventWith(GameEvent.EVT_RETURN);
+        }, this);
     };
     return playerUi;
 }(eui.Component));

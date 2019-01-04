@@ -96,7 +96,7 @@ class Main extends eui.UILayer {
 
     private pageLoader(name: string): void {
         if(name !== 'home'){
-            this.HomeUi.switchSence(name);
+            this.HomeUi.switchScene(name);
         }
     }
 

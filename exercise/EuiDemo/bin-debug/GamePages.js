@@ -5,6 +5,7 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var GamePages = (function () {
     function GamePages() {
     }
+    GamePages.HOME = 'home';
     GamePages.PLAYER = 'player';
     GamePages.HEROS = 'heros';
     GamePages.INVENTORY = 'inventory';

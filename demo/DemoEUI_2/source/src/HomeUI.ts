@@ -54,7 +54,7 @@ class HomeUI extends eui.Component{
             console.log( evt.currentTarget.name, "已经选中不应当再处理!" );
             return;
         }
-        /// 逻辑生效，所有按钮锁定
+        /// 逻辑生效，所有按钮锁定 
         for( var i:number = this.btns.length - 1; i > -1; --i ){
             this.btns[i].enabled = false;
         }
