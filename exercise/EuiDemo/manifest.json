@@ -17,7 +17,7 @@
 		"bin-debug/Main.js",
 		"bin-debug/PageConfig.js",
 		"bin-debug/Platform.js",
-		"bin-debug/playerUi.js",
-		"bin-debug/ThemeAdapter.js"
+		"bin-debug/ThemeAdapter.js",
+		"bin-debug/scenes/playerUi.js"
 	]
 }

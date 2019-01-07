@@ -13,12 +13,10 @@ var playerUi = (function (_super) {
     function playerUi() {
         var _this = _super.call(this) || this;
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.handleUi, _this);
-        _this.skinName = '/resource/custom_skins/playerUi.exml';
         return _this;
     }
     playerUi.prototype.handleUi = function () {
         var _this = this;
-        console.log(1);
         this.btnReturn.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             _this.dispatchEventWith(GameEvent.EVT_RETURN);
         }, this);
@@ -31,8 +29,8 @@ var playerUi = (function (_super) {
             { icon: "skillIcon06_png", name: "霸天戮杀" },
             { icon: "skillIcon07_png", name: "灭魂狂飙" }
         ];
-        this.listSkin.itemRendererSkinName = 'equipSkin';
-        this.listSkin.dataProvider = new eui.ArrayCollection(skillList);
+        this.listSkills.itemRendererSkinName = 'equipSkin';
+        this.listSkills.dataProvider = new eui.ArrayCollection(skillList);
     };
     playerUi.prototype.createChildren = function () {
         _super.prototype.createChildren.call(this);

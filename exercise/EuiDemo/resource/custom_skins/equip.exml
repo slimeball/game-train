@@ -2,6 +2,6 @@
 <e:Skin class="equipSkin" width="87" height="130" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="167eef34bf2" ></w:Config>
 	<e:Image source="skillItemFrame_png" x="0" y="0"/>
-	<e:Image width="69" height="68" x="9" y="10" anchorOffsetX="0" anchorOffsetY="0" source="{data.img}"/>
-	<e:Label text="{data.name}" x="5" y="99" size="18" fontFamily="Microsoft YaHei" textColor="0xe29e24"/>
+	<e:Image width="69" height="68" x="9" y="10" anchorOffsetX="0" anchorOffsetY="0" source="{data.icon}"/>
+	<e:Label text="{data.name}" x="5" y="99" size="18" fontFamily="Microsoft YaHei" textColor="0xe29e24" verticalAlign="middle" textAlign="center"/>
 </e:Skin>
