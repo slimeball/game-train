@@ -162,7 +162,7 @@ var Main = (function (_super) {
     };
     Main.prototype.pageLoader = function (name) {
         if (name !== 'home') {
-            this.HomeUi.switchSence(name);
+            this.HomeUi.switchScene(name);
         }
     };
     Main.prototype.createGameScene = function () {

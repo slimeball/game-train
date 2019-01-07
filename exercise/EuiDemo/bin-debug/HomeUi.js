@@ -12,7 +12,9 @@ var HomeUi = (function (_super) {
     __extends(HomeUi, _super);
     function HomeUi() {
         var _this = _super.call(this) || this;
+        // 添加eui事件，加载完成后执行的方法
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.handleUi, _this);
+        // 指定皮肤为
         _this.skinName = '/resource/custom_skins/HomeUi.exml';
         return _this;
     }
@@ -41,24 +43,25 @@ var HomeUi = (function (_super) {
         }
         this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, this._currentPage);
     };
-    HomeUi.prototype.switchSence = function (senceName) {
+    HomeUi.prototype.switchScene = function (sceneName) {
         var _this = this;
-        switch (senceName) {
+        switch (sceneName) {
             case GamePages.PLAYER:
                 if (!this._playerUI) {
                     this._playerUI = new playerUi;
                     this._playerUI.addEventListener(GameEvent.EVT_RETURN, function () {
-                        if (_this._focusedUI.parent) {
-                            _this._focusedUI.parent.removeChild(_this._focusedUI);
+                        // 移除当前场景并显示主场景
+                        if (_this._focusedScene.parent) {
+                            _this._focusedScene.parent.removeChild(_this._focusedScene);
                         }
                         _this.backHome();
                     }, this);
                 }
                 this.imgBg.source = 'commonBg_jpg';
-                this._focusedUI = this._playerUI;
+                this._focusedScene = this._playerUI;
                 break;
         }
-        this.addChildAt(this._focusedUI, this.getChildIndex(this.imgBg) + 1);
+        this.addChildAt(this._focusedScene, this.getChildIndex(this.imgBg) + 1);
     };
     return HomeUi;
 }(eui.Component));
