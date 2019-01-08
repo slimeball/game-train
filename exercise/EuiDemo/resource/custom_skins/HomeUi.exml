@@ -4,7 +4,7 @@
 	<e:ToggleButton id="btnPlayer" label="" x="15" bottom="0" name="player">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>
+			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png" source.disabled="mbtn_BgFc_png"/>
 	<e:Image source="mbtnPlayer_png" x="0" y="0"/>
 			</e:Skin>
 		</e:skinName>
@@ -12,7 +12,7 @@
 	<e:ToggleButton id="btnHeros" label="" x="127" bottom="-1" name="heros">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>
+			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png" source.disabled="mbtn_BgFc_png"/>
 	<e:Image source="mbtnHero_png" x="6" y="4"/>
 			</e:Skin>
 		</e:skinName>
@@ -20,7 +20,7 @@
 	<e:ToggleButton id="btnInventory" label="" x="240" bottom="1" name="inventory">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>
+			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png" source.disabled="mbtn_BgFc_png"/>
 	<e:Image source="mbtnGoods_png" x="2" y="1"/>
 			</e:Skin>
 		</e:skinName>
@@ -28,7 +28,7 @@
 	<e:ToggleButton id="btnAbout" label="" x="354" anchorOffsetY="0" height="85" bottom="1" name="about">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png"/>
+			<e:Image width="100%" height="100%" source="mbtn_Bg_png" source.down="mbtn_BgFc_png" source.disabled="mbtn_BgFc_png"/>
 	<e:Image source="mbtnAbout_png" x="0" y="6"/>
 			</e:Skin>
 		</e:skinName>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="HeroUiListSkin" width="443" height="104" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="1682c2ed8f7" ></w:Config>
+	<e:Image source="listItemBkgd_png" y="-1" width="100%" height="104100%"/>
+	<e:Image width="65" height="71" x="32" y="14.5" anchorOffsetX="0" anchorOffsetY="0" source="{data.icon}"/>
+	<e:Label x="149" y="17" anchorOffsetX="0" width="129" size="20" anchorOffsetY="0" height="28" verticalAlign="middle" textAlign="center" fontFamily="Microsoft YaHei" text="{data.heroName}"/>
+	<e:Label text="{data.comment}" x="117" y="61" anchorOffsetX="0" width="240" anchorOffsetY="0" height="25" size="20" textAlign="left" verticalAlign="middle" fontFamily="Microsoft YaHei"/>
+	<e:CheckBox id="cb" label="" x="388" y="18" selected="{data.checked}">
+		<e:skinName>
+			<e:Skin states="up,down,disabled" width="36" height="36">
+	<e:Group bottom="0" right="0" left="0" top="0">
+		<e:Image source="checkNo_png" source.down="checked_png" left="0" right="0" top="0" bottom="0"/>
+	</e:Group>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+</e:Skin>

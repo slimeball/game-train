@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="herosUi.tsSkin" width="480" height="800" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="1682c16ea14" ></w:Config>
+	<e:Image source="btnOK_png" x="381" y="132"/>
+	<e:Image id="btnReturn" source="btnReturn_png" x="19" y="132"/>
+	<e:Image source="herosTitle_png" x="174" y="135.5"/>
+	<e:Scroller width="452" height="502.67" x="12" y="187" anchorOffsetX="0" anchorOffsetY="0">
+		<e:List id="listHeros" height="520.67" x="0" y="1" width="456" anchorOffsetX="0" anchorOffsetY="0">
+			<e:layout>
+				<e:VerticalLayout/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

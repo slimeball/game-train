@@ -30,10 +30,40 @@ var HomeUi = (function (_super) {
         this._backCurrentPrev = this._currentPage = GamePages.HOME;
         this.imgBg.source = 'homeBg_jpg';
     };
+    HomeUi.prototype.resetFocus = function () {
+        if (this._focusedScene) {
+            if (this._focusedScene.parent) {
+                this._focusedScene.parent.removeChild(this._focusedScene);
+            }
+            this._focusedScene = null;
+        }
+        if (this._btnFocused != null) {
+            this._btnFocused.selected = false;
+            this._btnFocused.enabled = true;
+            this._btnFocused = null;
+        }
+    };
     HomeUi.prototype.btnHanlder = function (evt) {
+        // 当前场景则不作处理
+        if (evt.currentTarget == this._btnFocused) {
+            return;
+        }
+        // 如果已有选择的，去掉焦点
+        if (this._btnFocused) {
+            this._btnFocused.selected = false;
+            this._btnFocused.enabled = true;
+        }
+        // 删掉上一个场景
+        if (this._focusedScene && this._focusedScene.parent) {
+            this._focusedScene.parent.removeChild(this._focusedScene);
+        }
+        this._btnFocused = evt.currentTarget;
+        // 选中后禁用按钮，使用禁用按钮皮肤在皮肤里设置状态背景
+        this._btnFocused.enabled = false;
+        this._focusedScene = null;
         this._backCurrentPrev = this._currentPage;
         // 匹配点击的按钮对象，切换页面并传递资源组名
-        switch (evt.currentTarget) {
+        switch (this._btnFocused) {
             case this.btnPlayer:
                 this._currentPage = GamePages.PLAYER;
                 break;
@@ -50,15 +80,23 @@ var HomeUi = (function (_super) {
                 if (!this._playerUI) {
                     this._playerUI = new playerUi;
                     this._playerUI.addEventListener(GameEvent.EVT_RETURN, function () {
-                        // 移除当前场景并显示主场景
-                        if (_this._focusedScene.parent) {
-                            _this._focusedScene.parent.removeChild(_this._focusedScene);
-                        }
+                        _this.resetFocus();
                         _this.backHome();
                     }, this);
                 }
                 this.imgBg.source = 'commonBg_jpg';
                 this._focusedScene = this._playerUI;
+                break;
+            case GamePages.HEROS:
+                if (!this._heroUI) {
+                    this._heroUI = new herosUi;
+                    this._heroUI.addEventListener(GameEvent.EVT_RETURN, function () {
+                        _this.resetFocus();
+                        _this.backHome();
+                    }, this);
+                }
+                this.imgBg.source = 'commonBg_jpg';
+                this._focusedScene = this._heroUI;
                 break;
         }
         this.addChildAt(this._focusedScene, this.getChildIndex(this.imgBg) + 1);

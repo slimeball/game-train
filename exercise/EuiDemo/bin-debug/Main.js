@@ -86,7 +86,6 @@ var Main = (function (_super) {
                         return [4 /*yield*/, platform.getUserInfo()];
                     case 4:
                         userInfo = _a.sent();
-                        console.log(userInfo);
                         return [4 /*yield*/, this.loadTheme()];
                     case 5:
                         _a.sent();
@@ -158,6 +157,8 @@ var Main = (function (_super) {
             case GamePages.PLAYER:
                 RES.loadGroup(GamePages.PLAYER);
                 break;
+            case GamePages.HEROS:
+                RES.loadGroup(GamePages.HEROS);
         }
     };
     Main.prototype.pageLoader = function (name) {

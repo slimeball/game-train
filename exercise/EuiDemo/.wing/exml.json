@@ -27,5 +27,15 @@
         "path": "equip.ts",
         "class": "equip",
         "parentPath": ""
+    },
+    "1682c16ea14": {
+        "path": "scenes\\herosUi.ts.ts",
+        "class": "herosUi.ts",
+        "parentPath": ""
+    },
+    "1682c2ed8f7": {
+        "path": "scenes\\HeroUiListSkin.ts",
+        "class": "HeroUiListSkin",
+        "parentPath": ""
     }
 }

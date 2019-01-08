@@ -17,11 +17,15 @@
 		"HomeUi": "resource/custom_skins/HomeUi.exml",
 		"playrtUi": "resource/custom_skins/playrtUi.exml",
 		"playerUi": "resource/custom_skins/playerUi.exml",
-		"equip": "resource/custom_skins/equip.exml"
+		"equip": "resource/custom_skins/equip.exml",
+		"herosUi": "resource/custom_skins/herosUi.exml",
+		"HeroUiListSkin": "resource/custom_skins/HeroUiListSkin.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
 		"resource/custom_skins/equip.exml",
+		"resource/custom_skins/herosUi.exml",
+		"resource/custom_skins/HeroUiListSkin.exml",
 		"resource/custom_skins/HomeUi.exml",
 		"resource/custom_skins/playerUi.exml",
 		"resource/eui_skins/ButtonSkin.exml",

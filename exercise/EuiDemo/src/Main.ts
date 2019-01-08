@@ -33,7 +33,6 @@ class Main extends eui.UILayer {
         const result = await RES.getResAsync("description_json")
         await platform.login();
         const userInfo = await platform.getUserInfo();
-        console.log(userInfo);
         await this.loadTheme();
     }
 
@@ -91,6 +90,8 @@ class Main extends eui.UILayer {
             case GamePages.PLAYER:
                 RES.loadGroup(GamePages.PLAYER);
             break;
+            case GamePages.HEROS:
+                RES.loadGroup(GamePages.HEROS);
         }
     }
 

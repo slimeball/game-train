@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="playerUiSkin" width="480" height="800" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="167eeaf307d" ></w:Config>
-	<e:Button id="btnReturn" label="Button" x="13.01" y="133.01">
+	<e:Button id="btnReturn" label="Button" x="13.01" y="135.01">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="90%" height="90%" width.down="100%" height.down="100%" horizontalCenter="0" verticalCenter="0" source="btnReturn_png" source.down="btnReturn_png"/>
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button label="Button" x="35" y="630">
+	<e:Button label="Button" x="35" y="632">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image width="90%" height="90%" width.down="100%" height.down="100%" horizontalCenter="0" verticalCenter="0" source="btnEquip_png"/>

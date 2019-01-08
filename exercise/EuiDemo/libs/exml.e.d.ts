@@ -1,5 +1,11 @@
 declare class equipSkin extends eui.Skin{
 }
+declare module herosUi{
+	class tsSkin extends eui.Skin{
+	}
+}
+declare class HeroUiListSkin extends eui.Skin{
+}
 declare class HomeUiSkin extends eui.Skin{
 }
 declare class playerUiSkin extends eui.Skin{
