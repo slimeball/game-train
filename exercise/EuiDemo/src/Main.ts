@@ -109,7 +109,7 @@ class Main extends eui.UILayer {
                 break;
         }
     }
-
+    // 加载资源后切换场景
     private pageLoader(name: string): void {
         if (name !== 'home') {
             this.HomeUi.switchScene(name);

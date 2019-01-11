@@ -153,6 +153,7 @@ var Main = (function (_super) {
         }
     };
     Main.prototype.onSourceProgress = function (evt) {
+        // 资源加载中添加loading
         switch (evt.groupName) {
             case 'loading':
                 this.loadingView.onProgress(evt.itemsLoaded, evt.itemsTotal);
@@ -161,6 +162,7 @@ var Main = (function (_super) {
     };
     // 根据组名加载不同资源
     Main.prototype.loadPage = function (pageName) {
+        // 分组加载时的loading
         this.addChild(this.loadingView);
         switch (pageName) {
             case GamePages.PLAYER:
@@ -173,10 +175,12 @@ var Main = (function (_super) {
                 break;
         }
     };
+    // 加载资源后切换场景
     Main.prototype.pageLoader = function (name) {
         if (name !== 'home') {
             this.HomeUi.switchScene(name);
         }
+        // 处理分组加载
         if (this.loadingView.parent) {
             this.loadingView.parent.removeChild(this.loadingView);
         }

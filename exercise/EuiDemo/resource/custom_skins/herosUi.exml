@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="herosUi.tsSkin" width="480" height="800" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="1682c16ea14" ></w:Config>
-	<e:Image source="btnOK_png" x="381" y="132"/>
-	<e:Image id="btnReturn" source="btnReturn_png" x="19" y="132"/>
+	<e:Button id="btnReturn" label="Button" x="12" y="131.5">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="90%" height="90%" width.down="100%" height.down="100%" horizontalCenter="0" verticalCenter="0" source="btnReturn_png" source.down="btnReturn_png"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btnConfirm" label="Button" x="379" y="132">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="90%" height="90%" width.down="100%" height.down="100%" horizontalCenter="0" verticalCenter="0" source="btnOK_png" source.down="btnOK_png"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
 	<e:Image source="herosTitle_png" x="174" y="135.5"/>
 	<e:Scroller width="452" height="502.67" x="12" y="187" anchorOffsetX="0" anchorOffsetY="0">
 		<e:List id="listHeros" height="520.67" x="0" y="1" width="456" anchorOffsetX="0" anchorOffsetY="0">
