@@ -60,6 +60,7 @@ class Main extends eui.UILayer {
             }, this);
             // 监听资源加载完成
             RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onSourceDone, this);
+            RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onSourceProgress, this)
         })
     }
 
@@ -78,32 +79,50 @@ class Main extends eui.UILayer {
                 break;
         }
     }
+
+    private onSourceProgress(evt: RES.ResourceEvent): void {
+        // 资源加载中添加loading
+        switch (evt.groupName) {
+            case 'loading':
+                this.loadingView.onProgress(evt.itemsLoaded, evt.itemsTotal)
+                break;
+        }
+    }
     /**
      * 创建场景界面
      * Create scene interface
      */
     private HomeUi: HomeUi;
-    
+
     // 根据组名加载不同资源
     private loadPage(pageName: string): void {
-        switch(pageName){
+        // 分组加载时的loading
+        this.addChild(this.loadingView);
+        switch (pageName) {
             case GamePages.PLAYER:
                 RES.loadGroup(GamePages.PLAYER);
-            break;
+                break;
             case GamePages.HEROS:
                 RES.loadGroup(GamePages.HEROS);
+            default:
+                RES.loadGroup(pageName);
+                break;
         }
     }
 
     private pageLoader(name: string): void {
-        if(name !== 'home'){
+        if (name !== 'home') {
             this.HomeUi.switchScene(name);
+        }
+        // 处理分组加载
+        if(this.loadingView.parent){
+            this.loadingView.parent.removeChild(this.loadingView);
         }
     }
 
     protected createGameScene(): void {
         this.HomeUi = new HomeUi();
-        this.HomeUi.addEventListener(GameEvent.EVT_LOAD_PAGE, (evt:egret.Event)=>{
+        this.HomeUi.addEventListener(GameEvent.EVT_LOAD_PAGE, (evt: egret.Event) => {
             this.loadPage(evt.data);
         }, this);
         this.addChild(this.HomeUi);

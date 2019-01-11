@@ -134,6 +134,7 @@ var Main = (function (_super) {
             }, _this);
             // 监听资源加载完成
             RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, _this.onSourceDone, _this);
+            RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, _this.onSourceProgress, _this);
         });
     };
     Main.prototype.onSourceDone = function (evt) {
@@ -151,19 +152,33 @@ var Main = (function (_super) {
                 break;
         }
     };
+    Main.prototype.onSourceProgress = function (evt) {
+        switch (evt.groupName) {
+            case 'loading':
+                this.loadingView.onProgress(evt.itemsLoaded, evt.itemsTotal);
+                break;
+        }
+    };
     // 根据组名加载不同资源
     Main.prototype.loadPage = function (pageName) {
+        this.addChild(this.loadingView);
         switch (pageName) {
             case GamePages.PLAYER:
                 RES.loadGroup(GamePages.PLAYER);
                 break;
             case GamePages.HEROS:
                 RES.loadGroup(GamePages.HEROS);
+            default:
+                RES.loadGroup(pageName);
+                break;
         }
     };
     Main.prototype.pageLoader = function (name) {
         if (name !== 'home') {
             this.HomeUi.switchScene(name);
+        }
+        if (this.loadingView.parent) {
+            this.loadingView.parent.removeChild(this.loadingView);
         }
     };
     Main.prototype.createGameScene = function () {
