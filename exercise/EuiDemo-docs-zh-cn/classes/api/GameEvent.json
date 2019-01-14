@@ -1,0 +1,29 @@
+{
+	"member": [
+		{
+			"kind": "member",
+			"type": "string",
+			"name": "EVT_LOAD_PAGE",
+			"memberof": "GameEvent",
+			"scope": "static",
+			"default": "\"EVT_LOAD_PAGE\""
+		},
+		{
+			"kind": "member",
+			"type": "string",
+			"name": "EVT_RETURN",
+			"memberof": "GameEvent",
+			"scope": "static",
+			"default": "\"EVT_RETURN\""
+		}
+	],
+	"function": [],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "GameEvent",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\GameEvent.ts"
+	}
+}

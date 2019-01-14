@@ -1,0 +1,28 @@
+{
+	"member": [],
+	"function": [
+		{
+			"kind": "function",
+			"name": "playerUi",
+			"memberof": "playerUi",
+			"scope": "instance"
+		},
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "createChildren",
+			"memberof": "playerUi",
+			"scope": "instance"
+		}
+	],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "playerUi",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\scenes\\playerUi.ts",
+		"augments": [],
+		"implements": []
+	}
+}

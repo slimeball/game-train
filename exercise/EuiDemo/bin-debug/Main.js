@@ -170,6 +170,7 @@ var Main = (function (_super) {
                 break;
             case GamePages.HEROS:
                 RES.loadGroup(GamePages.HEROS);
+                break;
             default:
                 RES.loadGroup(pageName);
                 break;

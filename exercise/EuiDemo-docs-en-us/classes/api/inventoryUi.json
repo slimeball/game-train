@@ -1,0 +1,47 @@
+{
+	"member": [],
+	"function": [
+		{
+			"kind": "function",
+			"name": "inventoryUi",
+			"memberof": "inventoryUi",
+			"scope": "instance"
+		},
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "childrenCreated",
+			"memberof": "inventoryUi",
+			"scope": "instance"
+		},
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "partAdded",
+			"memberof": "inventoryUi",
+			"scope": "instance",
+			"params": [
+				{
+					"name": "partName",
+					"type": "string",
+					"description": ""
+				},
+				{
+					"name": "instance",
+					"type": "any",
+					"description": ""
+				}
+			]
+		}
+	],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "inventoryUi",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\scenes\\inventoryUi.ts",
+		"augments": [],
+		"implements": []
+	}
+}

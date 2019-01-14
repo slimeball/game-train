@@ -21,6 +21,9 @@ var herosUi = (function (_super) {
         this.btnReturn.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             _this.dispatchEventWith(GameEvent.EVT_RETURN);
         }, this);
+        // 确认按钮事件
+        this.btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        }, this);
         var heroList = [
             { icon: "heros01_png", heroName: "伊文捷琳", comment: "评价：樱桃小丸子", checked: true },
             { icon: "heros02_png", heroName: "亚特伍德", comment: "评价：离了我你不行的", checked: false },

@@ -19,7 +19,9 @@
 		"playerUi": "resource/custom_skins/playerUi.exml",
 		"equip": "resource/custom_skins/equip.exml",
 		"herosUi": "resource/custom_skins/herosUi.exml",
-		"HeroUiListSkin": "resource/custom_skins/HeroUiListSkin.exml"
+		"HeroUiListSkin": "resource/custom_skins/HeroUiListSkin.exml",
+		"inventoryUi": "resource/custom_skins/inventoryUi.exml",
+		"inventoryUiListSkin": "resource/custom_skins/inventoryUiListSkin.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -27,6 +29,8 @@
 		"resource/custom_skins/herosUi.exml",
 		"resource/custom_skins/HeroUiListSkin.exml",
 		"resource/custom_skins/HomeUi.exml",
+		"resource/custom_skins/inventoryUi.exml",
+		"resource/custom_skins/inventoryUiListSkin.exml",
 		"resource/custom_skins/playerUi.exml",
 		"resource/eui_skins/ButtonSkin.exml",
 		"resource/eui_skins/CheckBoxSkin.exml",

@@ -71,12 +71,16 @@ class HomeUi extends eui.Component implements eui.UIComponent {
 			case this.btnHeros:
 				this._currentPage = GamePages.HEROS;
 				break;
+			case this.btnInventory:
+				this._currentPage = GamePages.INVENTORY;
+				break;
 		}
 		this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, this._currentPage);
 	}
 
 	private _playerUI: playerUi; // 玩家场景
 	private _heroUI: herosUi; // 英雄场景
+	private _inventoryUI: inventoryUi; // 物品场景
 	private _focusedScene: eui.Component; // 当前场景的实例
 	public switchScene(sceneName: string): void {
 		switch (sceneName) {
@@ -101,6 +105,17 @@ class HomeUi extends eui.Component implements eui.UIComponent {
 				}
 				this.imgBg.source = 'commonBg_jpg';
 				this._focusedScene = this._heroUI;
+				break;
+			case GamePages.INVENTORY:
+				if(!this._inventoryUI) {
+					this._inventoryUI = new inventoryUi;
+					this._inventoryUI.addEventListener(GameEvent.EVT_RETURN, () => {
+						this.resetFocus();
+						this.backHome();
+					}, this)
+				}
+				this.imgBg.source = 'commonBg_jpg';
+				this._focusedScene = this._inventoryUI;
 				break;
 		}
 

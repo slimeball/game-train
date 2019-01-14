@@ -1,0 +1,28 @@
+{
+	"member": [],
+	"function": [
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "createChildren",
+			"memberof": "Main",
+			"scope": "instance"
+		},
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "createGameScene",
+			"memberof": "Main",
+			"scope": "instance"
+		}
+	],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "Main",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\Main.ts",
+		"augments": []
+	}
+}

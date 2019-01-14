@@ -1,0 +1,27 @@
+{
+	"member": [],
+	"function": [
+		{
+			"kind": "function",
+			"name": "heroUiListSkin",
+			"memberof": "heroUiListSkin",
+			"scope": "instance"
+		},
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "createChildren",
+			"memberof": "heroUiListSkin",
+			"scope": "instance"
+		}
+	],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "heroUiListSkin",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\scenes\\herosUi.ts",
+		"augments": []
+	}
+}

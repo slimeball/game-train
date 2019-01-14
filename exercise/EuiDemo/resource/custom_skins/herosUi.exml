@@ -8,7 +8,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="btnConfirm" label="Button" x="379" y="132">
+	<e:Button id="btnConfirm" label="Button" x="391.16" y="132">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image width="90%" height="90%" width.down="100%" height.down="100%" horizontalCenter="0" verticalCenter="0" source="btnOK_png" source.down="btnOK_png"/>

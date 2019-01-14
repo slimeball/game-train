@@ -1,0 +1,54 @@
+{
+	"member": [
+		{
+			"kind": "member",
+			"type": "string",
+			"name": "ABOUT",
+			"memberof": "GamePages",
+			"scope": "static",
+			"default": "'about'"
+		},
+		{
+			"kind": "member",
+			"type": "string",
+			"name": "HEROS",
+			"memberof": "GamePages",
+			"scope": "static",
+			"default": "'heros'"
+		},
+		{
+			"kind": "member",
+			"type": "string",
+			"name": "HOME",
+			"memberof": "GamePages",
+			"scope": "static",
+			"default": "'home'"
+		},
+		{
+			"kind": "member",
+			"type": "string",
+			"name": "INVENTORY",
+			"memberof": "GamePages",
+			"scope": "static",
+			"default": "'inventory'"
+		},
+		{
+			"kind": "member",
+			"type": "string",
+			"name": "PLAYER",
+			"memberof": "GamePages",
+			"scope": "static",
+			"default": "'player'"
+		}
+	],
+	"function": [],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "GamePages",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\GamePages.ts",
+		"description": "// 游戏页名称，与资源组名称一致"
+	}
+}

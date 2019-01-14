@@ -1,0 +1,31 @@
+{
+	"api": {
+		"class": [
+			"AssetAdapter",
+			"DebugPlatform",
+			"GameEvent",
+			"GamePages",
+			"HomeUi",
+			"LoadingUI",
+			"Main",
+			"PageConfig",
+			"ThemeAdapter",
+			"heroUiListSkin",
+			"herosUi",
+			"inventoryUi",
+			"playerUi"
+		],
+		"interface": [
+			"Platform",
+			"Window"
+		],
+		"globalMember": [
+			"window.globalMember"
+		]
+	},
+	"other": {
+		"class": [
+			"global.Types"
+		]
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"member": [],
+	"function": [
+		{
+			"kind": "function",
+			"name": "HomeUi",
+			"memberof": "HomeUi",
+			"scope": "instance"
+		},
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "switchScene",
+			"memberof": "HomeUi",
+			"scope": "instance",
+			"params": [
+				{
+					"name": "sceneName",
+					"type": "string",
+					"description": ""
+				}
+			]
+		}
+	],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "HomeUi",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\HomeUi.ts",
+		"augments": [],
+		"implements": []
+	}
+}

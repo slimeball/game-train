@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="inventoryUiSkin" width="480" height="800" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="1684adf2e27" ></w:Config>
+	<e:Image source="goodsTitle_png" y="135.97" horizontalCenter="0.5"/>
+	<e:Button id="btnReturn" label="Button" x="12.84" y="130.98">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="90%" height="90%" width.down="100%" height.down="100%" horizontalCenter="0" verticalCenter="0" source="btnReturn_png" source.down="btnReturn_png"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Scroller width="450" height="520" x="12.24" y="195.78" anchorOffsetX="0" anchorOffsetY="0">
+		<e:List id="inventoryList" y="1.52" anchorOffsetY="0" height="571.21">
+			<e:layout>
+				<e:VerticalLayout/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

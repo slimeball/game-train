@@ -70,6 +70,9 @@ var HomeUi = (function (_super) {
             case this.btnHeros:
                 this._currentPage = GamePages.HEROS;
                 break;
+            case this.btnInventory:
+                this._currentPage = GamePages.INVENTORY;
+                break;
         }
         this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, this._currentPage);
     };
@@ -97,6 +100,17 @@ var HomeUi = (function (_super) {
                 }
                 this.imgBg.source = 'commonBg_jpg';
                 this._focusedScene = this._heroUI;
+                break;
+            case GamePages.INVENTORY:
+                if (!this._inventoryUI) {
+                    this._inventoryUI = new inventoryUi;
+                    this._inventoryUI.addEventListener(GameEvent.EVT_RETURN, function () {
+                        _this.resetFocus();
+                        _this.backHome();
+                    }, this);
+                }
+                this.imgBg.source = 'commonBg_jpg';
+                this._focusedScene = this._inventoryUI;
                 break;
         }
         this.addChildAt(this._focusedScene, this.getChildIndex(this.imgBg) + 1);

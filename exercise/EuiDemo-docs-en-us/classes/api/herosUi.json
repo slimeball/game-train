@@ -1,0 +1,28 @@
+{
+	"member": [],
+	"function": [
+		{
+			"kind": "function",
+			"name": "herosUi",
+			"memberof": "herosUi",
+			"scope": "instance"
+		},
+		{
+			"kind": "function",
+			"type": "void",
+			"name": "childrenCreated",
+			"memberof": "herosUi",
+			"scope": "instance"
+		}
+	],
+	"globalMember": [],
+	"globalFunction": [],
+	"class": {
+		"kind": "class",
+		"name": "herosUi",
+		"memberof": "",
+		"filename": "D:\\projects\\test\\game-train\\exercise\\EuiDemo\\src\\scenes\\herosUi.ts",
+		"augments": [],
+		"implements": []
+	}
+}

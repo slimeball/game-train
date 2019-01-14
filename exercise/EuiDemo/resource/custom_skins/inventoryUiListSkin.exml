@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="inventoryUiListSkinSkin" width="443" height="104" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="1684aeaa360" ></w:Config>
+	<e:Image left="0" right="0" top="0" bottom="0" source="listItemBkgd_png"/>
+	<e:Image width="64.16" height="71.33" x="32.33" y="15.34" anchorOffsetX="0" anchorOffsetY="0" source="{data.picture}"/>
+	<e:Label x="145.83" y="17.84" anchorOffsetX="0" width="133.67" anchorOffsetY="0" height="29.17" text="{data.goodsName}" textColor="0xffff00" size="20" fontFamily="Microsoft YaHei" textAlign="left" verticalAlign="middle"/>
+	<e:Label x="114.83" y="58.5" anchorOffsetY="0" height="28" anchorOffsetX="0" width="245" text="{data.property}" textColor="0x72e8ff" size="20" fontFamily="Microsoft YaHei" textAlign="center" verticalAlign="middle"/>
+</e:Skin>

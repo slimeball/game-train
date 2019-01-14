@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,about-bg_png,about_png,close_png,commonBg_jpg,homeBg_jpg,loading_jpg,loading2_png,toast-bg_png,btnReturn_png,mbtnAbout_png,mbtnGoods_png,mbtnHero_png,mbtnPlayer_png,mbtn_Bg_png,mbtn_BgFc_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,commonBg_jpg,homeBg_jpg,loading_jpg,loading2_png,toast-bg_png,btnReturn_png,mbtnAbout_png,mbtnGoods_png,mbtnHero_png,mbtnPlayer_png,mbtn_Bg_png,mbtn_BgFc_png,listItemBkgd_png",
 			"name": "preload"
 		},
 		{
@@ -13,8 +13,16 @@
 			"name": "player"
 		},
 		{
-			"keys":"btnOK_png,checked_png,checkNo_png,goods01_png,goods02_png,goods03_png,goods04_png,goods05_png,goods06_png,goods07_png,goodsTitle_png,heros01_png,heros02_png,heros03_png,heros04_png,heros05_png,heros06_png,heros07_png,herosTitle_png,bgListPage_jpg,hScrollBar01_png,hScrollBar02_png,listItemBkgd_png",
+			"keys":"btnOK_png,checked_png,checkNo_png,heros01_png,heros02_png,heros03_png,heros04_png,heros05_png,heros06_png,heros07_png,herosTitle_png,bgListPage_jpg,hScrollBar01_png,hScrollBar02_png",
 			"name": "heros"
+		},
+		{
+		"keys":"goods01_png,goods02_png,goods03_png,goods04_png,goods05_png,goods06_png,goods07_png,goodsTitle_png",
+		"name":"inventory"
+		},
+		{
+			"keys":"about-bg_png,about_png,close_png",
+			"name":"about"
 		}
 	],
 	"resources": [

@@ -104,6 +104,7 @@ class Main extends eui.UILayer {
                 break;
             case GamePages.HEROS:
                 RES.loadGroup(GamePages.HEROS);
+                break;
             default:
                 RES.loadGroup(pageName);
                 break;
