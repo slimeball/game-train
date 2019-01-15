@@ -3,8 +3,8 @@ class inventoryUi extends eui.Component implements eui.UIComponent {
 	private inventoryList: eui.List;
 	public constructor() {
 		super();
-		this.addEventListener(eui.UIEvent.COMPLETE, this.handleUi, this)
-		this.skinName = 'resource/custom_skins/inventoryUi.exml'
+		this.addEventListener(eui.UIEvent.COMPLETE, this.handleUi, this);
+		this.skinName = '/resource/custom_skins/inventoryUi.exml'
 	}
 
 	private handleUi(): void {
@@ -12,7 +12,7 @@ class inventoryUi extends eui.Component implements eui.UIComponent {
 			this.dispatchEventWith(GameEvent.EVT_RETURN);
 		}, this)
 
-		let inventoryList: Array<Object> = [
+		let inventoryData: Array<Object> = [
 			{ picture: "goods01_png", goodsName: "魔法石", property: "法力加成 +3" },
 			{ picture: "goods02_png", goodsName: "诅咒娃娃", property: "咒术加成 +3" },
 			{ picture: "goods03_png", goodsName: "万圣戒指", property: "敏捷加成 +3" },
@@ -22,7 +22,7 @@ class inventoryUi extends eui.Component implements eui.UIComponent {
 			{ picture: "goods07_png", goodsName: "屠龙刀", property: "力量加成 +5" }
 		];
 
-		this.inventoryList.dataProvider = new eui.ArrayCollection(inventoryList);
+		this.inventoryList.dataProvider = new eui.ArrayCollection(inventoryData);
 		this.inventoryList.itemRenderer = inventoryListSkin;
 
 	}
