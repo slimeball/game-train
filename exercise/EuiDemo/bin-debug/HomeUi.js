@@ -104,7 +104,6 @@ var HomeUi = (function (_super) {
             case GamePages.INVENTORY:
                 if (!this._inventoryUI) {
                     this._inventoryUI = new inventoryUi;
-                    console.log(1);
                     this._inventoryUI.addEventListener(GameEvent.EVT_RETURN, function () {
                         _this.resetFocus();
                         _this.backHome();

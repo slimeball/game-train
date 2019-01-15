@@ -4,7 +4,7 @@ class inventoryUi extends eui.Component implements eui.UIComponent {
 	public constructor() {
 		super();
 		this.addEventListener(eui.UIEvent.COMPLETE, this.handleUi, this);
-		this.skinName = '/resource/custom_skins/inventoryUi.exml'
+		// this.skinName = '/resource/custom_skins/inventoryUi.exml'
 	}
 
 	private handleUi(): void {
@@ -21,10 +21,8 @@ class inventoryUi extends eui.Component implements eui.UIComponent {
 			{ picture: "goods06_png", goodsName: "血滴子", property: "嗜血加成 +3" },
 			{ picture: "goods07_png", goodsName: "屠龙刀", property: "力量加成 +5" }
 		];
-
 		this.inventoryList.dataProvider = new eui.ArrayCollection(inventoryData);
 		this.inventoryList.itemRenderer = inventoryListSkin;
-
 	}
 
 	protected childrenCreated(): void {

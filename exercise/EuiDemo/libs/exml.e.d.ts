@@ -10,7 +10,7 @@ declare class HomeUiSkin extends eui.Skin{
 }
 declare class inventoryUiSkin extends eui.Skin{
 }
-declare class inventoryUiListSkinSkin extends eui.Skin{
+declare class inventoryUiListSkin extends eui.Skin{
 }
 declare class playerUiSkin extends eui.Skin{
 }

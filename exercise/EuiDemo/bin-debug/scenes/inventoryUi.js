@@ -13,8 +13,8 @@ var inventoryUi = (function (_super) {
     function inventoryUi() {
         var _this = _super.call(this) || this;
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.handleUi, _this);
-        _this.skinName = '/resource/custom_skins/inventoryUi.exml';
         return _this;
+        // this.skinName = '/resource/custom_skins/inventoryUi.exml'
     }
     inventoryUi.prototype.handleUi = function () {
         var _this = this;

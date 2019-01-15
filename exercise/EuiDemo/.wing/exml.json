@@ -29,8 +29,8 @@
     "parentPath": ""
   },
   "1682c16ea14": {
-    "path": "scenes\\herosUi.ts.ts",
-    "class": "herosUi.ts",
+    "path": "scenes\\herosUi.ts",
+    "class": "herosUi",
     "parentPath": ""
   },
   "1682c2ed8f7": {
@@ -41,6 +41,11 @@
   "1684adf2e27": {
     "path": "scenes\\inventoryUi.ts",
     "class": "inventoryUi",
+    "parentPath": ""
+  },
+  "1684aeaa360": {
+    "path": "scenes\\inventoryUiListSkin.ts",
+    "class": "inventoryUiListSkin",
     "parentPath": ""
   }
 }

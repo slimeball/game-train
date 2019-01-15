@@ -9,8 +9,8 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Scroller width="450" height="520" x="12.24" y="195.78" anchorOffsetX="0" anchorOffsetY="0">
-		<e:List id="inventoryList" y="1.52" anchorOffsetY="0" height="571.21">
+	<e:Scroller width="450" height="500" y="195.78" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0">
+		<e:List id="inventoryList" y="1.52" anchorOffsetY="0" height="100%" width="100%">
 			<e:layout>
 				<e:VerticalLayout/>
 			</e:layout>
