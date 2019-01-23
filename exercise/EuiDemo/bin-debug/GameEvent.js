@@ -6,6 +6,7 @@ var GameEvent = (function () {
     }
     GameEvent.EVT_RETURN = "EVT_RETURN";
     GameEvent.EVT_LOAD_PAGE = "EVT_LOAD_PAGE";
+    GameEvent.EVT_CLOSE_ABOUT = "EVT_CLOSE_ABOUT";
     return GameEvent;
 }());
 __reflect(GameEvent.prototype, "GameEvent");

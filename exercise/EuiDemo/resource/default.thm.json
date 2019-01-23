@@ -21,10 +21,12 @@
 		"herosUi": "resource/custom_skins/herosUi.exml",
 		"HeroUiListSkin": "resource/custom_skins/HeroUiListSkin.exml",
 		"inventoryUi": "resource/custom_skins/inventoryUi.exml",
-		"inventoryUiListSkin": "resource/custom_skins/inventoryUiListSkin.exml"
+		"inventoryUiListSkin": "resource/custom_skins/inventoryUiListSkin.exml",
+		"aboutUi": "resource/custom_skins/aboutUi.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
+		"resource/custom_skins/aboutUi.exml",
 		"resource/custom_skins/equip.exml",
 		"resource/custom_skins/herosUi.exml",
 		"resource/custom_skins/HeroUiListSkin.exml",

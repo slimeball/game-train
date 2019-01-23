@@ -74,6 +74,8 @@ class HomeUi extends eui.Component implements eui.UIComponent {
 			case this.btnInventory:
 				this._currentPage = GamePages.INVENTORY;
 				break;
+			case this.btnAbout:
+				this._currentPage = GamePages.ABOUT;
 		}
 		this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, this._currentPage);
 	}
@@ -81,6 +83,7 @@ class HomeUi extends eui.Component implements eui.UIComponent {
 	private _playerUI: playerUi; // 玩家场景
 	private _heroUI: herosUi; // 英雄场景
 	private _inventoryUI: inventoryUi; // 物品场景
+	private _aboutUi: aboutUi; // about us scene
 	private _focusedScene: eui.Component; // 当前场景的实例
 	public switchScene(sceneName: string): void {
 		switch (sceneName) {
@@ -116,6 +119,29 @@ class HomeUi extends eui.Component implements eui.UIComponent {
 				}
 				this.imgBg.source = 'commonBg_jpg';
 				this._focusedScene = this._inventoryUI;
+				break;
+			case GamePages.ABOUT:
+				if(!this._aboutUi){
+					this._aboutUi = new aboutUi;
+					this._aboutUi.addEventListener(GameEvent.EVT_CLOSE_ABOUT, ()=>{
+						this.resetFocus();
+						switch(this._backCurrentPrev){
+							case GamePages.PLAYER:
+								this.btnPlayer.selected = true;
+								this.btnPlayer.dispatchEventWith( egret.TouchEvent.TOUCH_TAP);
+								break;
+							case GamePages.HEROS:
+								this.btnHeros.selected = true;
+								this.btnHeros.dispatchEventWith( egret.TouchEvent.TOUCH_TAP);
+								break;
+							case GamePages.INVENTORY:
+								this.btnInventory.selected = true;
+								this.btnInventory.dispatchEventWith( egret.TouchEvent.TOUCH_TAP);
+								break;
+						}
+					}, this)
+				}
+				this._focusedScene = this._aboutUi;
 				break;
 		}
 

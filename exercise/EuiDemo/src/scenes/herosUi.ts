@@ -14,6 +14,10 @@ class herosUi extends eui.Component implements eui.UIComponent {
 		}, this)
 		// 确认按钮事件
 		this.btnConfirm.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+			// 获取已经初始化的列表数据
+			let dp: eui.ICollection = this.listHeros.dataProvider;
+			let nameChecked: string[] = new Array<string>();
+
 			
 		}, this)
 		let heroList: Array<Object> = [

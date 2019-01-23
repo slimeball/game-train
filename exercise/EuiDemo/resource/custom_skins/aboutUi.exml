@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="aboutUiSkin" width="480" height="800" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="168796bce9b" ></w:Config>
+	<e:Image left="0" right="0" top="0" bottom="0" source="about-bg_png"/>
+	<e:Image source="about_png" y="0" horizontalCenter="0"/>
+	<e:Button id="btnClose" label="Button" x="396" y="216">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="90%" height="90%" width.down="100%" height.down="100%" source="close_png"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Label id="aboutText" x="203" y="318" anchorOffsetX="0" width="195" anchorOffsetY="0" height="80" text="{text}"/>
+</e:Skin>

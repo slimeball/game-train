@@ -17,6 +17,7 @@
 		"bin-debug/GameEvent.js",
 		"bin-debug/Platform.js",
 		"bin-debug/ThemeAdapter.js",
+		"bin-debug/scenes/aboutUi.js",
 		"bin-debug/scenes/herosUi.js",
 		"bin-debug/scenes/inventoryUi.js",
 		"bin-debug/scenes/playerUi.js"

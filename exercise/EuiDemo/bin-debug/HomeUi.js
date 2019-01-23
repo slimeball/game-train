@@ -73,6 +73,8 @@ var HomeUi = (function (_super) {
             case this.btnInventory:
                 this._currentPage = GamePages.INVENTORY;
                 break;
+            case this.btnAbout:
+                this._currentPage = GamePages.ABOUT;
         }
         this.dispatchEventWith(GameEvent.EVT_LOAD_PAGE, false, this._currentPage);
     };
@@ -111,6 +113,29 @@ var HomeUi = (function (_super) {
                 }
                 this.imgBg.source = 'commonBg_jpg';
                 this._focusedScene = this._inventoryUI;
+                break;
+            case GamePages.ABOUT:
+                if (!this._aboutUi) {
+                    this._aboutUi = new aboutUi;
+                    this._aboutUi.addEventListener(GameEvent.EVT_CLOSE_ABOUT, function () {
+                        _this.resetFocus();
+                        switch (_this._backCurrentPrev) {
+                            case GamePages.PLAYER:
+                                _this.btnPlayer.selected = true;
+                                _this.btnPlayer.dispatchEventWith(egret.TouchEvent.TOUCH_TAP);
+                                break;
+                            case GamePages.HEROS:
+                                _this.btnHeros.selected = true;
+                                _this.btnHeros.dispatchEventWith(egret.TouchEvent.TOUCH_TAP);
+                                break;
+                            case GamePages.INVENTORY:
+                                _this.btnInventory.selected = true;
+                                _this.btnInventory.dispatchEventWith(egret.TouchEvent.TOUCH_TAP);
+                                break;
+                        }
+                    }, this);
+                }
+                this._focusedScene = this._aboutUi;
                 break;
         }
         this.addChildAt(this._focusedScene, this.getChildIndex(this.imgBg) + 1);
